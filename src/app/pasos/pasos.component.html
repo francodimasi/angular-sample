@@ -1,0 +1,24 @@
+ <mat-horizontal-stepper #stepper linear>
+    <mat-step>
+      <ng-template matStepLabel>Bienvenido</ng-template>
+      <mat-card class="full-card">
+        <span class="full-card-content">Rusia 2018</span>
+        <div style="text-align: center;">
+            <button mat-button matStepperNext type="button">ENTENDIDO</button>
+          </div>
+      </mat-card>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Antes de empezar</ng-template>
+        <mat-card class="full-card">
+          <span class="full-card-content">Rusia 2018</span>
+          <div style="text-align: center;">
+              <button mat-button matStepperNext type="button">COMENZAR</button>
+            </div>
+        </mat-card>
+      </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Fixture</ng-template>
+        <fixture></fixture>
+    </mat-step>
+  </mat-horizontal-stepper>
