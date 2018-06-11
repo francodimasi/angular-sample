@@ -104,8 +104,8 @@
                     </div>
                   </div>
                 </mat-card-content>
-                <mat-card-actions *ngIf="match.canBet">
-                    <button mat-raised-button color="primary" type="submit">APOSTAR</button>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet ? 'true' : 'false'">APOSTAR</button>
                 </mat-card-actions>
             </mat-card>
             </form>
@@ -167,8 +167,8 @@
                       </div>
                     </div>
                   </mat-card-content>
-                  <mat-card-actions *ngIf="match.canBet">
-                      <button mat-raised-button color="primary" type="submit">APOSTAR</button>
+                  <mat-card-actions>
+                      <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet ? 'true' : 'false'">APOSTAR</button>
                   </mat-card-actions>
               </mat-card>
               </form>

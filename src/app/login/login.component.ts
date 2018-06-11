@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   emailAddress: string;
   password: string;
+  error: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private backendService: BackendService) {}
 
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginForm: NgForm) {
       // stop here if form is invalid
-      
+      this.error = '';
       if (loginForm.valid) {
         this.backendService.login(loginForm.value)
         .pipe(first())
@@ -37,8 +38,8 @@ export class LoginComponent implements OnInit {
                 this.router.navigate([this.returnUrl]);
             },
             error => {
-                if (error.status = 401) {
-
+                if (error.status == 401 || error.status == 400) {
+                    this.error = 'Email o Contraserña incorrectos'
                 }
             });
       }

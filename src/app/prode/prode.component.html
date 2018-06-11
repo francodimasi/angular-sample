@@ -5,8 +5,15 @@
       fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
+      opened="false">
       <!-- <mat-toolbar color="primary"></mat-toolbar> -->
+      <mat-card *ngIf="currentUser" class="profile-card">
+          <mat-card-header style="display: inline !important;">
+            <div mat-card-avatar class="profile-header-image"></div>
+            <mat-card-title>{{currentUser.fullName}}</mat-card-title>
+            <mat-card-subtitle>{{currentUser.emailAddress}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
       <mat-nav-list>
         <a mat-list-item routerLink="/inicio">INICIO</a>
         <a mat-list-item routerLink="/puntaje">PUNTAJE</a>
@@ -16,7 +23,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar color="primary" style="position: fixed; z-index: 99;">
+      <mat-toolbar style="position: fixed; z-index: 99; background-color: #ffffff;">
         <button
           type="button"
           aria-label="Toggle sidenav"
@@ -24,7 +31,7 @@
           (click)="drawer.toggle()">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span>Prode Rusia 2018</span>
+        <img src="/assets/logo.png" style="max-width: 100px; margin-left: 1rem;">
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>

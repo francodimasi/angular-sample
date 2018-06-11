@@ -13,10 +13,12 @@
                     <input matInput type="password" placeholder="Contraseña" [ngModel]="password" name="password" id="password" required/>
                     <mat-hint>Tu número de documento</mat-hint>
                 </mat-form-field>
+                <mat-error style="padding-top: .5rem;" *ngIf="error">
+                    {{error}}
+                </mat-error>
                 <div style="padding-top: 1rem;">
                     <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
                 </div>
-                
             </form>
         </mat-card-content>
       </mat-card>

@@ -1,4 +1,4 @@
-<div class="grid-container">
+<div class="main-div grid-container" style="display: block !important;">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="(isHandset$ | async) ? '2' : card.cols" [rowspan]="card.rows">

@@ -28,9 +28,7 @@ export class FixtureComponent implements OnInit {
 
   constructor(public snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver, private backendService: BackendService) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

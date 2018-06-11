@@ -1,11 +1,18 @@
-.full-card {
+.first-card {
     margin-top: 20px !important;
-    height: 76vh;
+    height: 65vh;
+    background: url(/assets/banner.jpg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-top: 20px !important;
+    background-color: white;
+    overflow: hidden;
 }
 
 .full-card-content {
     position: relative;
     display: block;
     height: 88%;
-    background: aqua;
 }

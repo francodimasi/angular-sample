@@ -16,13 +16,14 @@ export class ProdeComponent implements OnInit {
     .pipe(
       map(result => result.matches)
     );
+    currentUser: any;
     
   constructor(private breakpointObserver: BreakpointObserver, private backendService: BackendService) {
 
   }
 
   ngOnInit() {
-
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   logout() {

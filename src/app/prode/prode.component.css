@@ -3,6 +3,20 @@
   }
   
   .sidenav {
-    width: 200px;
+    width: 300px;
     box-shadow: 3px 0 6px rgba(0,0,0,.24);
   }  
+
+  .profile-card {
+    max-width: 300px;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 15px 15px 0px 10px;
+  }
+  
+  .profile-header-image {
+    margin-bottom: 1rem;
+    margin-left: 10px;
+    background-image: url('/assets/avatar.png');
+    background-size: cover;
+  }
