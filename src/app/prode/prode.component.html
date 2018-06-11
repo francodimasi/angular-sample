@@ -7,7 +7,7 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       opened="false">
       <!-- <mat-toolbar color="primary"></mat-toolbar> -->
-      <mat-card *ngIf="currentUser" class="profile-card">
+      <mat-card *ngIf="(isLoggedIn$ | async)" class="profile-card">
           <mat-card-header style="display: inline !important;">
             <div mat-card-avatar class="profile-header-image"></div>
             <mat-card-title>{{currentUser.fullName}}</mat-card-title>
@@ -19,7 +19,7 @@
         <a mat-list-item routerLink="/puntaje">PUNTAJE</a>
         <a mat-list-item routerLink="/ayuda">REGLAS</a>
         <a mat-list-item routerLink="/contacto">¿PROBLEMAS?</a>
-        <a mat-list-item (click)="logout()">Cerrar Sesión</a>
+        <a mat-list-item *ngIf="(isLoggedIn$ | async)" (click)="logout()"><small>Cerrar Sesión</small></a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

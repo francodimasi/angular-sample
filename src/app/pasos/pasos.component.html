@@ -10,10 +10,44 @@
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Antes de empezar</ng-template>
-        <mat-card class="full-card">
-          <span class="full-card-content">Rusia 2018</span>
+        <mat-card class="second-card">
+          <h2>Reglas</h2>
+          <p>
+            El fixture interactivo se podrá completar en cualquier momento de la Copa del Mundo. Solo se podrán completar resultados o hacer modificaciones hasta dos horas antes del inicio de cada partido. 
+          </p>
+            <p><strong>SISTEMA DE PUNTOS</strong></p>
+            <p>En fase de grupos:</p>
+            <p>
+                Si se acierta el resultado del partido se obtendrá 1 punto.
+                Si, además de acertar el resultado del partido, se aciertan los goles se obtendrán 3 puntos adicionales.
+            </p>
+            <p>
+            Si se acierta el resultado del partido se obtendrá 1 punto.
+            Si, además de acertar el resultado del partido, se aciertan los goles se obtendrán 3 puntos adicionales.
+            </p>
+            <p>
+            A partir de octavos:
+          </p>
+          <p>
+            Si se acierta el resultado del partido, se obtendrá 1 punto. 
+            Si, además de acertar el resultado del partido, se aciertan los goles, se obtendrán 5 puntos adicionales.
+            Si el partido va a penales solo se tomara en cuenta el resultado del partido. No se podran obtener los puntos extras por los goles.
+            Si se pronostica un ganador durante el partido (no en los penales) y ese país resultara ganador por penales, se lleva 1 solo punto.
+            </p>
+            <p>Los multiplicadores en cada fase del torneo:</p>
+            <ul>
+              <li>Puntos obtenidos durante la fase de grupos: x 2</li>
+              <li>Puntos obtenidos en los octavos de final: x 4</li>
+              <li> Puntos obtenidos en los cuartos de final y en la definición por el tercer puesto: x 8</li>
+              <li>Puntos obtenidos en las semifinal: x 16</li>
+              <li>Puntos obtenidos en la final: x 32</li>
+            </ul>
+            <p>
+            Habrá una tabla de posiciones para el ranking general del cual participan todos los usuarios que hagan un pronóstico.
+          
+            </p>
           <div style="text-align: center;">
-              <button mat-button matStepperNext type="button">COMENZAR</button>
+              <button mat-raised-button matStepperNext color="primary" type="button" (click)="toogleFirstTime()">COMENZAR</button>
             </div>
         </mat-card>
       </mat-step>

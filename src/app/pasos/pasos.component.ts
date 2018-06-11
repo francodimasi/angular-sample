@@ -8,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasosComponent implements OnInit {
 
+  firstTime: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toogleFirstTime() {
+    if (this.firstTime) {
+      this.firstTime = false;
+    } 
   }
 
 }

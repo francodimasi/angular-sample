@@ -6,6 +6,11 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-color: white;
+    overflow: hidden;
+}
+
+.second-card {
     margin-top: 20px !important;
     background-color: white;
     overflow: hidden;

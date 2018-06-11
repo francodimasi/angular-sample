@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap, mergeMap } from 'rxjs/operators';
+import { catchError, map, tap, mergeMap, delay } from 'rxjs/operators';
 
 import { Match } from './match.model';
 import { Prediction, Predicted } from './prediction.model';
 import { Login } from './login.model';
+import { del } from 'selenium-webdriver/http';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,7 +18,7 @@ const httpOptions = {
 })
 export class BackendService {
 
-  private apiBase = 'https://api-prode-dev.mybluemix.net/api/v1';
+  private apiBase: string = 'http://localhost:1337/api/v1';
 
   constructor(private http: HttpClient) {}
 
@@ -68,6 +69,14 @@ export class BackendService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+    }
+
+    isLoggedIn(): Observable<boolean> {
+      if (localStorage.getItem('currentUser')) {
+        return of(true);
+      } else {
+        return of(false);
+      }
     }
 
   private handleError<T> (operation = 'operation', result?: T) {
