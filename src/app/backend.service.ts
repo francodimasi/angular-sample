@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class BackendService {
 
-  private apiBase = 'http://localhost:1337/api/v1';
+  private apiBase = 'https://api-prode-dev.mybluemix.net/api/v1';
 
   constructor(private http: HttpClient) {}
 
