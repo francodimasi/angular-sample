@@ -15,9 +15,9 @@ export class PuntajeComponent implements OnInit {
     map(result => result.matches)
   );
   cards = [
-    { title: 'Card 2', cols: 1, rows: 1 },
-    { title: 'Card 3', cols: 1, rows: 2 },
-    { title: 'Card 4', cols: 1, rows: 1 }
+    { title: 'Tus puntos', cols: 1, rows: 1 },
+    { title: 'Tabla de Posiciones', cols: 1, rows: 2 },
+    { title: 'Ganadores', cols: 1, rows: 1 }
   ];
 
   constructor(private breakpointObserver: BreakpointObserver) {}
