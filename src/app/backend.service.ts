@@ -56,6 +56,7 @@ export class BackendService {
   }
 
   login(login: Login) {
+    login.emailAddress = login.emailAddress.replace(/\s/g, "");
     return this.http.put<any>(`${this.apiBase}/entrance/login`, { emailAddress: login.emailAddress, password: login.password, apiLogin: true })
         .pipe(map((res:any) => {
             // login successful if there's a jwt token in the response
