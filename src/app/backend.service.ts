@@ -27,10 +27,11 @@ export class BackendService {
       .pipe(
         tap(fixture => fixture.forEach(match => {
             this.getPrediction(match.id).subscribe(prediction => {
+                console.log(prediction);
                 match.prediction = prediction[0];
                 let date1: number = Date.parse(match.matchTime);
                 let date2: number = Date.now();
-                if ((((date1 - date2) / 1000 / 60 / 60) > 2) && !match.prediction) {
+                if (((date1 - date2) / 1000 / 60 / 60) > 2) {
                   match.canBet = true;
                 } else {
                   match.canBet = false;
@@ -43,7 +44,7 @@ export class BackendService {
   }
 
   getPrediction(matchId: string): Observable<Predicted[]> {
-    return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}`)
+    return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}&sort=predictionTime%20DESC`)
       .pipe(      
         catchError(this.handleError('getPrediction', []))
       );

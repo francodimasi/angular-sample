@@ -9,6 +9,7 @@ export interface Prediction {
 
 export interface Predicted {
     id: string;
+    predictionTime: number;
     localScorePrediction: number;
     visitorScorePrediction: number;
     match: MatchDetail;
