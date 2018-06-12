@@ -1,4 +1,4 @@
-.first-card {
+/* .first-card {
     margin-top: 20px !important;
     height: 65vh;
     background: url(/assets/banner.jpg) no-repeat center center; 
@@ -6,6 +6,12 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-color: white;
+    overflow: hidden;
+} */
+
+.first-card {
+    margin-top: 20px !important;
     background-color: white;
     overflow: hidden;
 }

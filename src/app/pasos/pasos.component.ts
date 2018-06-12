@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -8,17 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasosComponent implements OnInit {
 
-  firstTime: boolean = true;
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches)
+  );
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  toogleFirstTime() {
-    if (this.firstTime) {
-      this.firstTime = false;
-    } 
-  }
 
 }

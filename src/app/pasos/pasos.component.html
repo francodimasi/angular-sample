@@ -1,8 +1,8 @@
- <mat-horizontal-stepper #stepper linear>
+ <mat-horizontal-stepper #stepper>
     <mat-step>
       <ng-template matStepLabel>Bienvenido</ng-template>
       <mat-card class="first-card">
-        <span class="full-card-content"></span>
+        <img [attr.src]="(isHandset$ | async) ? 'assets/banner-mobile.jpg' : 'assets/banner.jpg'" style="width: 100%; max-height: 80vh;" alt="">
         <div style="text-align: center;">
             <button mat-raised-button matStepperNext type="button" color="primary">ENTENDIDO</button>
           </div>
@@ -18,23 +18,19 @@
             <p><strong>SISTEMA DE PUNTOS</strong></p>
             <p>En fase de grupos:</p>
             <p>
-                Si se acierta el resultado del partido se obtendrá 1 punto.
-                Si, además de acertar el resultado del partido, se aciertan los goles se obtendrán 3 puntos adicionales.
-            </p>
-            <p>
             Si se acierta el resultado del partido se obtendrá 1 punto.
-            Si, además de acertar el resultado del partido, se aciertan los goles se obtendrán 3 puntos adicionales.
+            Si, además de acertar el resultado del partido, se aciertan los goles se obtendrán 4 puntos adicionales.
             </p>
             <p>
             A partir de octavos:
           </p>
           <p>
             Si se acierta el resultado del partido, se obtendrá 1 punto. 
-            Si, además de acertar el resultado del partido, se aciertan los goles, se obtendrán 5 puntos adicionales.
+            Si, además de acertar el resultado del partido, se aciertan los goles, se obtendrán 6 puntos adicionales.
             Si el partido va a penales solo se tomara en cuenta el resultado del partido. No se podran obtener los puntos extras por los goles.
             Si se pronostica un ganador durante el partido (no en los penales) y ese país resultara ganador por penales, se lleva 1 solo punto.
             </p>
-            <p>Los multiplicadores en cada fase del torneo:</p>
+            <p>Los puntos de cada fase del torneo se multiplican de la siguiente manera:</p>
             <ul>
               <li>Puntos obtenidos durante la fase de grupos: x 2</li>
               <li>Puntos obtenidos en los octavos de final: x 4</li>
@@ -43,11 +39,10 @@
               <li>Puntos obtenidos en la final: x 32</li>
             </ul>
             <p>
-            Habrá una tabla de posiciones para el ranking general del cual participan todos los usuarios que hagan un pronóstico.
-          
+            Habrá una tabla de posiciones para el ranking general del cual participan todos los usuarios que hagan un pronóstico. La misma se puede ver en el menu de la aplicación.
             </p>
           <div style="text-align: center;">
-              <button mat-raised-button matStepperNext color="primary" type="button" (click)="toogleFirstTime()">COMENZAR</button>
+              <button mat-raised-button matStepperNext color="primary" type="button">COMENZAR</button>
             </div>
         </mat-card>
       </mat-step>
