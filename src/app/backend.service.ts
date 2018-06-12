@@ -43,7 +43,7 @@ export class BackendService {
   }
 
   getPrediction(matchId: string): Observable<Predicted[]> {
-    return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}&sort=predictionTime%20DESC`)
+    return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}&sort=predictionIdAI%20DESC`)
       .pipe(      
         catchError(this.handleError('getPrediction', []))
       );

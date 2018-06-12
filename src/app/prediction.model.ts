@@ -12,6 +12,7 @@ export interface Predicted {
     predictionTime: number;
     localScorePrediction: number;
     visitorScorePrediction: number;
+    predictionIdAI?: number;
     match: MatchDetail;
 }
 
