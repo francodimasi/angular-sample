@@ -27,7 +27,6 @@ export class BackendService {
       .pipe(
         tap(fixture => fixture.forEach(match => {
             this.getPrediction(match.id).subscribe(prediction => {
-                console.log(prediction);
                 match.prediction = prediction[0];
                 let date1: number = Date.parse(match.matchTime);
                 let date2: number = Date.now();
