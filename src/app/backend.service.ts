@@ -30,7 +30,7 @@ export class BackendService {
                 match.prediction = prediction[0];
                 let date1: number = Date.parse(match.matchTime);
                 let date2: number = Date.now();
-                if (((date1 - date2) / 1000 / 60 / 60) > 2) {
+                if (((date1 - date2) / 1000 / 60 / 60) + 3 > 2) {
                   match.canBet = true;
                 } else {
                   match.canBet = false;
