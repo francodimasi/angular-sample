@@ -18,12 +18,12 @@ const httpOptions = {
 })
 export class BackendService {
 
-  private apiBase: string = 'https://api-prode-dev.mybluemix.net/api/v1';
+  private apiBase: string = 'https://prode2018-gruposupervielle.mybluemix.net/api/v1';
 
   constructor(private http: HttpClient) {}
 
   getFixture(tournamentStage: number): Observable<Match[]> {
-    return this.http.get<Match[]>(`${this.apiBase}/match?tournamentStage=${tournamentStage}`)
+    return this.http.get<Match[]>(`${this.apiBase}/match/get-matchs-with-availability?tournamentStage=${tournamentStage}`)
       .pipe(
         tap(fixture => fixture.forEach(match => {
             this.getPrediction(match.id).subscribe(prediction => {
