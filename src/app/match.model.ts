@@ -8,6 +8,8 @@ export interface Match {
     id: string;
     tournamentStage: number;
     matchTime: string;
+    localTeamScore?: number;
+    visitorTeamScore?: number;
     prediction?: Predicted;
     canBet?: boolean;
   }

@@ -23,7 +23,7 @@
               <mat-card-content>
                 <div class="match-field">
                   <div class="team-label">
-                      <img src="{{match.localTeam.img}}" width="48" height="48">
+                      <span matBadge="{{match.localTeamScore}}" matBadgeHidden="{{ match.localTeamScore == null ? 'true' : 'false'}}"><img src="{{match.localTeam.img}}" width="48" height="48"></span>
                       <span style="display: block;">{{match.localTeam.name}}</span>
                       <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                           <input matInput type="number" placeholder="Goles" min="0" id="localScorePrediction" [ngModel]="match.prediction?.localScorePrediction" name="localScorePrediction" required [disabled]="!match.canBet"/>
@@ -32,7 +32,7 @@
                   </div>
                   <span style="font-size: 20px; font-weight: bold; line-height: 5rem;">VS</span>
                   <div class="team-label">
-                      <img src="{{match.visitorTeam.img}}" width="48" height="48">
+                    <span matBadge="{{match.visitorTeamScore}}" matBadgePosition="before" matBadgeHidden="{{ match.visitorTeamScore == null ? 'true' : 'false'}}"><img src="{{match.visitorTeam.img}}" width="48" height="48"></span>
                       <span style="display: block;">{{match.visitorTeam.name}}</span>
                       <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                           <input matInput type="number" placeholder="Goles" min="0" id="visitorScorePrediction" [ngModel]="match.prediction?.visitorScorePrediction" name="visitorScorePrediction" required [disabled]="!match.canBet"/>
@@ -41,7 +41,7 @@
                   </div>
                 </div>
               </mat-card-content>
-              <mat-card-actions>
+              <mat-card-actions style="position: absolute; bottom: 24px;">
                   <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
               </mat-card-actions>
           </mat-card>
@@ -73,7 +73,7 @@
       </mat-expansion-panel-header>
   
   
-      <mat-grid-list *ngIf="phaseTwo$ | async as phaseTwo; else loading" cols="3" rowHeight="300px">
+      <mat-grid-list *ngIf="phaseTwo$ | async as phaseTwo; else loading" cols="3" rowHeight="350px">
           <mat-grid-tile *ngFor="let match of phaseTwo" [colspan]="(isHandset$ | async) ? '3' : '1'" rowspan="1">
             <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
             <mat-card class="fixture-card">
@@ -91,6 +91,7 @@
                         <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                             <input matInput type="number" placeholder="Goles" min="0" id="localScorePrediction" [ngModel]="match.prediction?.localScorePrediction" name="localScorePrediction" required [disabled]="!match.canBet ? 'true' : 'false'"/>
                         </mat-form-field>
+                        <span style="display: block;">{{match.localTeamScore}}</span>
                         <input type="hidden" id="localTeam" [ngModel]="match.localTeam.id" name="localTeam">
                     </div>
                     <span style="font-size: 20px; font-weight: bold; line-height: 5rem;">VS</span>
@@ -100,6 +101,7 @@
                         <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                             <input matInput type="number" placeholder="Goles" min="0" id="visitorScorePrediction" [ngModel]="match.prediction?.visitorScorePrediction" name="visitorScorePrediction" required [disabled]="!match.canBet ? 'true' : 'false'"/>
                         </mat-form-field>
+                        <span style="display: block;">{{match.visitorTeamScore}}</span>
                         <input type="hidden" id="visitorTeam" [ngModel]="match.visitorTeam.id" name="visitorTeam">
                     </div>
                   </div>
@@ -136,7 +138,7 @@
         </mat-expansion-panel-header>
     
     
-        <mat-grid-list *ngIf="phaseThree$ | async as phaseThree; else loading" cols="3" rowHeight="300px">
+        <mat-grid-list *ngIf="phaseThree$ | async as phaseThree; else loading" cols="3" rowHeight="350px">
             <mat-grid-tile *ngFor="let match of phaseThree" [colspan]="(isHandset$ | async) ? '3' : '1'" rowspan="1">
               <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
               <mat-card class="fixture-card">
@@ -154,6 +156,7 @@
                           <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                               <input matInput type="number" placeholder="Goles" min="0" id="localScorePrediction" [ngModel]="match.prediction?.localScorePrediction" name="localScorePrediction" required [disabled]="!match.canBet ? 'true' : 'false'"/>
                           </mat-form-field>
+                          <span style="display: block;">{{match.localTeamScore}}</span>
                           <input type="hidden" id="localTeam" [ngModel]="match.localTeam.id" name="localTeam">
                       </div>
                       <span style="font-size: 20px; font-weight: bold; line-height: 5rem;">VS</span>
@@ -163,6 +166,7 @@
                           <mat-form-field style="width: 70px; text-align: center; font-size: 20px;">
                               <input matInput type="number" placeholder="Goles" min="0" id="visitorScorePrediction" [ngModel]="match.prediction?.visitorScorePrediction" name="visitorScorePrediction" required [disabled]="!match.canBet ? 'true' : 'false'"/>
                           </mat-form-field>
+                          <span style="display: block;">{{match.visitorTeamScore}}</span>
                           <input type="hidden" id="visitorTeam" [ngModel]="match.visitorTeam.id" name="visitorTeam">
                       </div>
                     </div>

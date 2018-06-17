@@ -35,7 +35,12 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.router.navigate([this.returnUrl]);
+                let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (currentUser.forceChangePassword) {
+                    this.router.navigate(['/password'], { queryParams: { returnUrl: '/inicio' }});
+                } else {
+                    this.router.navigate([this.returnUrl]);
+                }
             },
             error => {
                 if (error.status == 401 || error.status == 400) {

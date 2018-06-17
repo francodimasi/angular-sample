@@ -6,10 +6,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatGridListModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatExpansionModule, MatInputModule, MatStepperModule, MatMenuModule, MatSnackBarModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatGridListModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatExpansionModule, MatInputModule, MatStepperModule, MatMenuModule, MatSnackBarModule, MatTableModule, MatBadgeModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { PasswordComponent } from './password/password.component';
 import { ProdeComponent } from './prode/prode.component';
 import { FixtureComponent } from './fixture/fixture.component';
 import { PasosComponent } from './pasos/pasos.component';
@@ -21,6 +22,7 @@ import { AuthGuard } from './app.guard';
 import { BackendService } from './backend.service';
 import { JwtInterceptor } from './jwt.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { JwtInterceptor } from './jwt.interceptor';
     PuntajeComponent,
     AyudaComponent,
     ContactoComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { JwtInterceptor } from './jwt.interceptor';
     MatInputModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatBadgeModule
   ],
   providers: [
     AuthGuard,

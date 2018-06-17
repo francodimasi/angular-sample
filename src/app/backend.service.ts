@@ -8,6 +8,7 @@ import { Match } from './match.model';
 import { Prediction, Predicted } from './prediction.model';
 import { Login } from './login.model';
 import { del } from 'selenium-webdriver/http';
+import { ObserveOnMessage } from 'rxjs/internal/operators/observeOn';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -51,13 +52,17 @@ export class BackendService {
   login(login: Login) {
     login.emailAddress = login.emailAddress.replace(/\s/g, "");
     return this.http.put<any>(`${this.apiBase}/entrance/login`, { emailAddress: login.emailAddress, password: login.password, apiLogin: true })
-        .pipe(map((res:any) => {
+        .pipe(map((res: any) => {
             // login successful if there's a jwt token in the response
             if (res && res.jwt) {
                 // store username and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify({ emailAddress: login.emailAddress, fullName: res.fullName, token: res.jwt }));
+                localStorage.setItem('currentUser', JSON.stringify({ emailAddress: login.emailAddress, fullName: res.fullName, token: res.jwt, forceChangePassword: res.forceChangePassword }));
             }
         }));
+    }
+
+    changePassword(password: string) {
+      return this.http.post<any>(`${this.apiBase}/account/update-password-rest`, { password: password });
     }
 
     logout() {
