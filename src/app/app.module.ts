@@ -6,7 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatGridListModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, MatExpansionModule, MatInputModule, MatStepperModule, MatMenuModule, MatSnackBarModule, MatTableModule, MatBadgeModule } from '@angular/material';
+import { MatToolbarModule, MatGridListModule, MatButtonModule, MatIconModule, MatSidenavModule, MatPaginatorModule, MatListModule, MatCardModule, MatExpansionModule, MatInputModule, MatStepperModule, MatMenuModule, MatSnackBarModule, MatTableModule, MatBadgeModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -53,6 +53,7 @@ import { JwtInterceptor } from './jwt.interceptor';
     MatExpansionModule,
     MatInputModule,
     MatMenuModule,
+    MatPaginatorModule,
     MatSnackBarModule,
     MatTableModule,
     MatBadgeModule

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap, mergeMap, delay } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Match } from './match.model';
 import { Prediction, Predicted } from './prediction.model';
+import { Score } from './score.model';
 import { Login } from './login.model';
-import { del } from 'selenium-webdriver/http';
-import { ObserveOnMessage } from 'rxjs/internal/operators/observeOn';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ const httpOptions = {
 })
 export class BackendService {
 
-  private apiBase: string = 'https://prode2018-gruposupervielle.mybluemix.net/api/v1';
+  private apiBase: string = 'http://localhost:1337/api/v1';
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +35,13 @@ export class BackendService {
         catchError(this.handleError('getFixture', []))
       );
   }
+
+  // getMatch(matchId: string): Observable<Match[]> {
+  //   return this.http.get<Match[]>(`${this.apiBase}/match/${matchId}`)
+  //     .pipe(
+  //       catchError(this.handleError('getMatch', []))
+  //     );
+  // }
 
   getPrediction(matchId: string): Observable<Predicted[]> {
     return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}&sort=predictionIdAI%20DESC`)
@@ -76,6 +83,13 @@ export class BackendService {
       } else {
         return of(false);
       }
+    }
+
+    getScore(): Observable<Score[]> {
+      return this.http.get<Score[]>(`${this.apiBase}/score`)
+      .pipe(   
+        catchError(this.handleError('getScore', []))
+      );
     }
 
   private handleError<T> (operation = 'operation', result?: T) {

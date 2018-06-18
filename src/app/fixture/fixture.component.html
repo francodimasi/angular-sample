@@ -73,7 +73,7 @@
       </mat-expansion-panel-header>
   
   
-      <mat-grid-list *ngIf="phaseTwo$ | async as phaseTwo; else loading" cols="3" rowHeight="350px">
+      <mat-grid-list *ngIf="phaseTwo$ | async as phaseTwo; else loading" cols="3" rowHeight="300px">
           <mat-grid-tile *ngFor="let match of phaseTwo" [colspan]="(isHandset$ | async) ? '3' : '1'" rowspan="1">
             <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
             <mat-card class="fixture-card">
@@ -106,8 +106,8 @@
                     </div>
                   </div>
                 </mat-card-content>
-                <mat-card-actions>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet ? 'true' : 'false'">PRONOSTICAR</button>
+                <mat-card-actions style="position: absolute; bottom: 24px;">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
                 </mat-card-actions>
             </mat-card>
             </form>
@@ -138,7 +138,7 @@
         </mat-expansion-panel-header>
     
     
-        <mat-grid-list *ngIf="phaseThree$ | async as phaseThree; else loading" cols="3" rowHeight="350px">
+        <mat-grid-list *ngIf="phaseThree$ | async as phaseThree; else loading" cols="3" rowHeight="300px">
             <mat-grid-tile *ngFor="let match of phaseThree" [colspan]="(isHandset$ | async) ? '3' : '1'" rowspan="1">
               <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
               <mat-card class="fixture-card">
@@ -171,8 +171,8 @@
                       </div>
                     </div>
                   </mat-card-content>
-                  <mat-card-actions>
-                      <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet ? 'true' : 'false'">PRONOSTICAR</button>
+                  <mat-card-actions style="position: absolute; bottom: 24px;">
+                      <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
                   </mat-card-actions>
               </mat-card>
               </form>
