@@ -36,12 +36,12 @@ export class BackendService {
       );
   }
 
-  // getMatch(matchId: string): Observable<Match[]> {
-  //   return this.http.get<Match[]>(`${this.apiBase}/match/${matchId}`)
-  //     .pipe(
-  //       catchError(this.handleError('getMatch', []))
-  //     );
-  // }
+  getMatch(matchId: string): Observable<Match[]> {
+    return this.http.get<Match[]>(`${this.apiBase}/match/${matchId}`)
+      .pipe(
+        catchError(this.handleError('getMatch', []))
+      );
+  }
 
   getPrediction(matchId: string): Observable<Predicted[]> {
     return this.http.get<Predicted[]>(`${this.apiBase}/prediction?match=${matchId}&sort=predictionIdAI%20DESC`)

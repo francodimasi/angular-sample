@@ -28,17 +28,18 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="(isHandset$ | async) ? '2' : 1" rowspan="1">
+    <mat-grid-tile [colspan]="(isHandset$ | async) ? '2' : 1" rowspan="1q">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             Detalle
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content mat-elevation-z8">
-          <table mat-table [dataSource]="detail">
+        <mat-card-content class="dashboard-card-content">
+            <div>Proximamente...</div>
+          <!-- <table mat-table [dataSource]="details">
           
-            <!-- <ng-container matColumnDef="position">
+            <ng-container matColumnDef="position">
               <th mat-header-cell *matHeaderCellDef> Puesto </th>
               <td mat-cell *matCellDef="let element"> {{element.localTeamImg}} </td>
             </ng-container>
@@ -47,24 +48,24 @@
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Nombre </th>
               <td mat-cell *matCellDef="let element"> {{element.visitorTeamImg}} </td>
-            </ng-container> -->
+            </ng-container>
     
-            <ng-container matColumnDef="total">
+            <ng-container matColumnDef="score">
               <th mat-header-cell *matHeaderCellDef> Puntos </th>
-              <td mat-cell *matCellDef="let element"> {{element.multiplier}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.score}} </td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          <mat-paginator showFirstLastButtons></mat-paginator> -->
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
   <ng-template #loading>
     <mat-grid-list cols="2" rowHeight="320px">
-      <mat-grid-tile [colspan]="(isHandset$ | async) ? '2' : '1'" rowspan="1">
+      <mat-grid-tile [colspan]="(isHandset$ | async) ? '2' : '1'" rowspan="1" style="height: 100%;">
         <mat-card class="dashboard-card">
           <mat-card-content class="dashboard-card-content">
             <span style="text-align: center;">Cargando...</span>
