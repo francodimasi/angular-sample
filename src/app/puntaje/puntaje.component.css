@@ -10,21 +10,6 @@
   bottom: 15px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-.dashboard-card-content {
-  text-align: center;
-}
-
-table {
-  width: 100%;
-}
-
-
 /* Structure */
 .example-container {
   position: relative;
@@ -32,7 +17,7 @@ table {
 
 .example-table-container {
   position: relative;
-  max-height: 400px;
+  max-height: 600px;
   overflow: auto;
 }
 

@@ -32,9 +32,6 @@ export class PuntajeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-
-    this.rankingSource.paginator = this.paginator;
-    
     this.score$.subscribe(
       scores => {
       scores.forEach(score => {
@@ -49,6 +46,7 @@ export class PuntajeComponent implements OnInit {
           position.position = this.position$;
           position.emailAddress = position.emailAddress.substring(position.emailAddress.lastIndexOf('@') + 1);
         });
+        this.rankingSource.paginator = this.paginator;
         this.rankingSource.data = ranking;
       });
 
