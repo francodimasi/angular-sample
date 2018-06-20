@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Match } from './match.model';
 import { Prediction, Predicted } from './prediction.model';
+import { Ranking } from './ranking.model';
 import { Score } from './score.model';
 import { Login } from './login.model';
 
@@ -87,6 +88,20 @@ export class BackendService {
 
     getScore(): Observable<Score[]> {
       return this.http.get<Score[]>(`${this.apiBase}/score`)
+      .pipe(   
+        catchError(this.handleError('getScore', []))
+      );
+    }
+
+    getScoreById(matchId: string): Observable<Score[]> {
+      return this.http.get<Score[]>(`${this.apiBase}/score?match=${matchId}`)
+      .pipe(
+        catchError(this.handleError('getScoreById', []))
+      );
+    }
+
+    getRanking(): Observable<Ranking[]> {
+      return this.http.get<Ranking[]>(`${this.apiBase}/score/get-scores-ranking`)
       .pipe(   
         catchError(this.handleError('getScore', []))
       );

@@ -23,3 +23,24 @@
 table {
   width: 100%;
 }
+
+
+/* Structure */
+.example-container {
+  position: relative;
+}
+
+.example-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+/* Column Widths */
+.mat-column-position,
+.mat-column-totalMultiplier {
+  max-width: 64px;
+}

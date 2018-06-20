@@ -12,6 +12,7 @@ export interface Match {
     visitorTeamScore?: number;
     prediction?: Predicted;
     canBet?: boolean;
+    points?: number;
   }
 
 interface Team {
