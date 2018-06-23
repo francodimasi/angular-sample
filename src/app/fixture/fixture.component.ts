@@ -39,9 +39,16 @@ export class FixtureComponent implements OnInit {
   onSubmit(matchForm: NgForm) {
     if (matchForm.valid) {
       this.backendService.postPrediction(matchForm.value)
-      .subscribe(() => {
+      .subscribe(data => {
         this.openSnackBar('Guardando...', '')
-      });
+      },
+    error => {
+      if (error.status == 500) {
+        this.backendService.logout();
+        window.location.reload();
+    }
+      
+    });
     }
   }
 

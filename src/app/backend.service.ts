@@ -52,9 +52,7 @@ export class BackendService {
   }
 
   postPrediction(prediction: Prediction): Observable<Prediction> {
-    return this.http.post<Prediction>(`${this.apiBase}/prediction`, prediction, httpOptions).pipe(
-      catchError(this.handleError<Prediction>('prediction'))
-    );
+    return this.http.post<Prediction>(`${this.apiBase}/prediction`, prediction, httpOptions);
   }
 
   login(login: Login) {
