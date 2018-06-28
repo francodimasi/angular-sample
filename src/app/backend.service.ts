@@ -85,7 +85,7 @@ export class BackendService {
     }
 
     getScore(): Observable<Score[]> {
-      return this.http.get<Score[]>(`${this.apiBase}/score`)
+      return this.http.get<Score[]>(`${this.apiBase}/score?limit=100`)
       .pipe(   
         catchError(this.handleError('getScore', []))
       );
