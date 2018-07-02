@@ -26,6 +26,8 @@ export class FixtureComponent implements OnInit {
   phaseTwo$: Observable<Match[]> = this.backendService.getFixture(1);
   phaseThree$: Observable<Match[]> = this.backendService.getFixture(2);
   phaseFour$: Observable<Match[]> = this.backendService.getFixture(3);
+  phaseFive$: Observable<Match[]> = this.backendService.getFixture(4);
+  phaseSix$: Observable<Match[]> = this.backendService.getFixture(5);
 
   constructor(public snackBar: MatSnackBar, private breakpointObserver: BreakpointObserver, private backendService: BackendService) { }
 
