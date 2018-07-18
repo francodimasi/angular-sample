@@ -18,6 +18,9 @@
             <mat-card-header>
               <mat-card-title>
                 El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                <br/><span *ngIf="match.score" style="color: red;">
+                El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                </span>
               </mat-card-title>
             </mat-card-header>
               <mat-card-content>
@@ -40,6 +43,9 @@
                       <input type="hidden" id="visitorTeam" [ngModel]="match.visitorTeam.id" name="visitorTeam">
                   </div>
                 </div>
+                <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                  Puntos: {{match.score.multiplier}}
+                </span>
               </mat-card-content>
               <mat-card-actions style="position: absolute; bottom: 24px;">
                   <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -81,6 +87,9 @@
               <mat-card-header>
                 <mat-card-title>
                   El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                  <br/><span *ngIf="match.score" style="color: red;">
+                    El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                    </span>
                 </mat-card-title>
               </mat-card-header>
                 <mat-card-content>
@@ -103,6 +112,9 @@
                         <input type="hidden" id="visitorTeam" [ngModel]="match.visitorTeam.id" name="visitorTeam">
                     </div>
                   </div>
+                  <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                    Puntos: {{match.score.multiplier}}
+                  </span>
                 </mat-card-content>
                 <mat-card-actions style="position: absolute; bottom: 24px;">
                     <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -144,6 +156,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -166,6 +181,9 @@
                           <input type="hidden" id="visitorTeam" [ngModel]="match.visitorTeam.id" name="visitorTeam">
                       </div>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -204,6 +222,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -232,6 +253,9 @@
                         </div>
                       </ng-template>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button *ngIf="match.localTeam || match.visitorTeam" mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -271,6 +295,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -299,6 +326,9 @@
                         </div>
                       </ng-template>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button *ngIf="match.localTeam || match.visitorTeam" mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -338,6 +368,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -366,6 +399,9 @@
                         </div>
                       </ng-template>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button *ngIf="match.localTeam || match.visitorTeam" mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -405,6 +441,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -433,6 +472,9 @@
                         </div>
                       </ng-template>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button *ngIf="match.localTeam || match.visitorTeam" mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>
@@ -472,6 +514,9 @@
                 <mat-card-header>
                   <mat-card-title>
                     El {{match.matchTime | date:'dd MMM':'+0000'}} a las {{match.matchTime | date:'HH:mm a':'+0000'}}
+                    <br/><span *ngIf="match.score" style="color: red;">
+                      El {{match.score.prediction.predictionTime | date:'dd MMM':'-0300'}} a las {{match.score.prediction.predictionTime | date:'HH:mm a':'-0300'}}
+                      </span>
                   </mat-card-title>
                 </mat-card-header>
                   <mat-card-content>
@@ -500,6 +545,9 @@
                         </div>
                       </ng-template>
                     </div>
+                    <span *ngIf="match.score" style="position: absolute; right: 10px; bottom: 10px;">
+                      Puntos: {{match.score.multiplier}}
+                    </span>
                   </mat-card-content>
                   <mat-card-actions style="position: absolute; bottom: 24px;">
                       <button *ngIf="match.localTeam || match.visitorTeam" mat-raised-button color="primary" type="submit" [disabled]="!match.canBet">PRONOSTICAR</button>

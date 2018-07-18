@@ -21,8 +21,8 @@ const httpOptions = {
 export class BackendService {
 
   
-  private apiBase: string = 'https://prode2018-gruposupervielle.mybluemix.net/api/v1';
-  // private apiBase: string = 'http://localhost:1337/api/v1';
+  // private apiBase: string = 'https://prode2018-gruposupervielle.mybluemix.net/api/v1';
+  private apiBase: string = 'https://api-prode-dev-backoffice.mybluemix.net/api/v1';
   
   constructor(private http: HttpClient) {}
 
@@ -35,6 +35,12 @@ export class BackendService {
             })   
           })
         ),
+        tap(fixture => fixture.forEach(match => {
+          this.getScoreById(match.id).subscribe(score => {
+              match.score = score[0];
+          })   
+        })
+      ),
         catchError(this.handleError('getFixture', []))
       );
   }
@@ -94,7 +100,7 @@ export class BackendService {
     }
 
     getScoreById(matchId: string): Observable<Score[]> {
-      return this.http.get<Score[]>(`${this.apiBase}/score?match=${matchId}`)
+      return this.http.get<Score[]>(`${this.apiBase}/score?match=${matchId}&limit=100`)
       .pipe(
         catchError(this.handleError('getScoreById', []))
       );

@@ -1,4 +1,5 @@
 import { Predicted } from "./prediction.model";
+import { Score } from "./score.model";
 
 export interface Match {
     localTeam: Team;
@@ -11,6 +12,7 @@ export interface Match {
     localTeamScore?: number;
     visitorTeamScore?: number;
     prediction?: Predicted;
+    score?: Score;
     canBet?: boolean;
     points?: number;
   }
